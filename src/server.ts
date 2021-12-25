@@ -1,6 +1,12 @@
 import express from "express";
 const app = express();
 
+// GET - BUSCAR POR INFORMAÇÃO 
+// POST - INSERIR INFROMAÇÃO
+// PUT - ALTERAR INFORMAÇÃO 
+// DELETAR - DEMOVER DADOS
+// PATCH - ALTERAR IFORMAÇÃO ESPECIFICA 
+
 app.get("/test", (req,res) => {
     return res.send("Texte de rota") 
 })

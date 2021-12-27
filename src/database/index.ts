@@ -1,3 +1,3 @@
-import { createConnection } from "typeorm";
+import { createConnection } from "typeorm"; // Importando o banco de dados typeorm
 
 createConnection();

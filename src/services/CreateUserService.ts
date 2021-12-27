@@ -13,7 +13,7 @@ class CreateUserService {
 
         console.log("Email", email);
         
-
+        // Se não tiver email aparecer Email incorrect
         if(!email){ 
             typeof new Error("email incorrect")
         }
@@ -25,13 +25,13 @@ class CreateUserService {
         if ( userAlreadyExists) {
             throw new Error("User alread exists")
         }
-
+        // Caso ele ainda não exista( Criar um novo Email)
         const user = usersRepository.create({
             name,
             email,
             admin 
         })
-
+        // Salvar tudo e retornar usuario
         await usersRepository.save(user);
         return user;
     }

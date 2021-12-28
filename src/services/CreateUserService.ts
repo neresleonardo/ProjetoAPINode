@@ -33,6 +33,7 @@ class CreateUserService {
         })
         // Salvar tudo e retornar usuario
         await usersRepository.save(user);
+        
         return user;
     }
 }

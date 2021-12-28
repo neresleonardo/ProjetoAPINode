@@ -18,6 +18,7 @@
     "@types/express": "^4.17.13",
     "@types/uuid": "^8.3.3",
     "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
     "git": "^0.1.5",
     "github": "^14.0.0",
     "reflect-metadata": "^0.1.13",

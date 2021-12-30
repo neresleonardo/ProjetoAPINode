@@ -1,30 +1,31 @@
-import { getCustomRepository } from "typeorm"
-import { TagsRepositories } from "../repositories/TagsRepositories"
- 
- class CreateTagService {
-     async execute(name: string) {
-        const tagsRepositories = getCustomRepository(TagsRepositories)
+import { getCustomRepository } from "typeorm";
+import { TagsRepositories } from "../repositories/TagsRepositories";
 
-        if(!name) {
-             throw new Error("Incorrect name"); 
-        }
-  // SELECT * FROM TAGS WHERE NAME = "name"
-        const tagAlreadyExists = await tagsRepositories.findOne({
-            name,
-        });
+class CreateTagService {
+  async execute(name: string) {
+    const tagsRepositories = getCustomRepository(TagsRepositories);
 
-        if(tagAlreadyExists) {
-             throw new Error( "Tag Already Exists");
+    if (!name) {
+      throw new Error("Incorrect name!");
+    }
 
-        }
-        const tag = tagsRepositories.create({
-            name,
-        })
+    // SELECT * FROM TAGS WHERE NAME = 'name'
+    const tagAlreadyExists = await tagsRepositories.findOne({
+      name,
+    });
 
-        await tagsRepositories.save(tag);
+    if (tagAlreadyExists) {
+      throw new Error("Tag already exists!");
+    }
 
-        return tag;
-     }
- }
+    const tag = tagsRepositories.create({
+      name,
+    });
 
- export { CreateTagService}
+    await tagsRepositories.save(tag);
+
+    return tag;
+  }
+}
+
+export { CreateTagService };
